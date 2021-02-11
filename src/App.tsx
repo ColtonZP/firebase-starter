@@ -1,11 +1,10 @@
 import React from 'react';
+import SignUp from './components/SignUp';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Firebase starter</h1>
-      </header>
+      <SignUp />
     </div>
   );
 }
