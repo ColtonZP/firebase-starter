@@ -6,15 +6,16 @@ export default function SignUp() {
   const passwordConfirmRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div>
-      <form action="">
-        <label htmlFor="email">Email</label>
+    <div className="sign-up card">
+      <h2>Sign Up</h2>
+      <form className="sign-up-form" action="">
+        <label htmlFor="email">Email:</label>
         <input id="email" type="email" ref={emailRef} required />
 
-        <label htmlFor="password">password</label>
+        <label htmlFor="password">Password:</label>
         <input id="password" type="password" ref={passwordRef} required />
 
-        <label htmlFor="password-confirm">password</label>
+        <label htmlFor="password-confirm">Confirm Password:</label>
         <input
           id="password-confirm"
           type="password"
@@ -24,6 +25,9 @@ export default function SignUp() {
 
         <input type="submit" />
       </form>
+      <p>
+        Have an account? <a href="">Sign in</a>
+      </p>
     </div>
   );
 }

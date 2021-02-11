@@ -1,0 +1,111 @@
+:root {
+  --theme-color: rgb(50, 150, 255);
+}
+
+////////////////////////////////////////////////// Reset
+
+* {
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 62.5%;
+
+  &:focus-within {
+    scroll-behavior: smooth;
+  }
+}
+
+body * {
+  display: block;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-size: 5.61rem;
+}
+
+h2 {
+  font-size: 4.209rem;
+}
+
+h3 {
+  font-size: 3.157rem;
+}
+
+h4 {
+  font-size: 2.369rem;
+}
+
+h5,
+label,
+p,
+input,
+a {
+  font-size: 1.777rem;
+}
+
+small {
+  font-size: 1.333rem;
+}
+
+a {
+  display: inline-block;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    color: var(--theme-color);
+  }
+}
+
+button,
+input[type='submit'],
+input[type='button'] {
+  cursor: pointer;
+}
+
+////////////////////////////////////////////////// Reset
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  padding: 2rem;
+}
+
+@import './sign-up';
