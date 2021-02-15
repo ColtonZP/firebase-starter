@@ -1,7 +1,7 @@
 import React from 'react';
 import SignUp from './components/SignUp';
 
-function App() {
+export const App = () => {
   return (
     <div className="App">
       <div className="container">
@@ -9,6 +9,4 @@ function App() {
       </div>
     </div>
   );
-}
-
-export default App;
+};
