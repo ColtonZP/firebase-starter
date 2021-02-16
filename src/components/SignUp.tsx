@@ -1,9 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef } from 'react'
 
 export default function SignUp() {
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
-  const passwordConfirmRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null)
+  const passwordRef = useRef<HTMLInputElement>(null)
+  const passwordConfirmRef = useRef<HTMLInputElement>(null)
 
   return (
     <div className="sign-up card">
@@ -16,12 +16,7 @@ export default function SignUp() {
         <input id="password" type="password" ref={passwordRef} required />
 
         <label htmlFor="password-confirm">Confirm Password:</label>
-        <input
-          id="password-confirm"
-          type="password"
-          ref={passwordConfirmRef}
-          required
-        />
+        <input id="password-confirm" type="password" ref={passwordConfirmRef} required />
 
         <input type="submit" />
       </form>
@@ -29,5 +24,5 @@ export default function SignUp() {
         Have an account? <a href="">Sign in</a>
       </p>
     </div>
-  );
+  )
 }

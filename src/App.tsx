@@ -1,5 +1,5 @@
-import React from 'react';
-import SignUp from './components/SignUp';
+import React from 'react'
+import SignUp from './components/SignUp'
 
 export const App = () => {
   return (
@@ -8,5 +8,5 @@ export const App = () => {
         <SignUp />
       </div>
     </div>
-  );
-};
+  )
+}
