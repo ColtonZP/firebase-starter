@@ -1,7 +1,11 @@
 import React, { useRef, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 
-export const SignUp = () => {
+type Props = {
+  toggleSignUp: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export const SignUp = ({ toggleSignUp }: Props) => {
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
   const passwordConfirmRef = useRef<HTMLInputElement>(null)
@@ -41,7 +45,10 @@ export const SignUp = () => {
         <input disabled={loading} type="submit" value="Sign Up" />
       </form>
       <span>
-        Have an account? <a href="">Sign in</a>
+        Have an account?
+        <button className="link" onClick={() => toggleSignUp(false)}>
+          Sign in
+        </button>
       </span>
     </div>
   )
