@@ -7,14 +7,14 @@ export const Dashboard = () => {
   function handleLogout() {
     try {
       signOut()
-    } catch {
-      console.error('error logging out')
+    } catch (err) {
+      console.error(err)
     }
   }
 
   return (
     <div>
-      <p>{`${user.email} currently logged in.`}</p>
+      <p>{`${user!.email} currently logged in.`}</p>
       <button onClick={handleLogout}>Log out</button>
     </div>
   )

@@ -10,7 +10,7 @@ export const Container = () => {
 
   return (
     <div className="container">
-      {!user ? (
+      {!user.email ? (
         signUp ? (
           <SignUp toggleSignUp={toggleSignUp} />
         ) : (
