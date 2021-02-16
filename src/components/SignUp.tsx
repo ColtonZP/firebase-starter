@@ -9,8 +9,7 @@ export const SignUp = () => {
   const [error, setError] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
 
-  async function handleSubmit(e: any) {
-    // ! fix any
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (passwordRef.current!.value !== passwordConfirmRef.current!.value) {
       return setError('Passwords do not match')
