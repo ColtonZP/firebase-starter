@@ -6,6 +6,7 @@ const AuthContext = React.createContext({
   user: { email: '' },
   signUp: (email: string, password: string) => {},
   signIn: (email: string, password: string) => {},
+  signOut: () => {},
 })
 
 export function useAuth() {
@@ -33,10 +34,15 @@ export const AuthProvider: React.FC = ({ children }) => {
     return auth.signInWithEmailAndPassword(email, password)
   }
 
+  function signOut() {
+    return auth.signOut()
+  }
+
   const value = {
     user,
     signUp,
     signIn,
+    signOut,
   }
 
   return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>

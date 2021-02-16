@@ -8,7 +8,7 @@ type Props = {
 export const SignIn = ({ toggleSignUp }: Props) => {
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
-  const { signUp } = useAuth()
+  const { signIn } = useAuth()
   const [error, setError] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
 
@@ -17,9 +17,10 @@ export const SignIn = ({ toggleSignUp }: Props) => {
     try {
       setError('')
       setLoading(true)
-      await signUp(emailRef.current!.value, passwordRef.current!.value)
-    } catch {
+      await signIn(emailRef.current!.value, passwordRef.current!.value)
+    } catch (err) {
       setError('Failed to sign in.')
+      console.error(err)
     }
     setLoading(false)
   }
@@ -37,7 +38,7 @@ export const SignIn = ({ toggleSignUp }: Props) => {
 
         <input disabled={loading} type="submit" value="Sign In" />
       </form>
-      <span>
+      <span className="toggleSignUp">
         Need an account?
         <button className="link" onClick={() => toggleSignUp(true)}>
           Sign up

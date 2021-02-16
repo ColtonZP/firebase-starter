@@ -9,7 +9,7 @@ export const SignUp = ({ toggleSignUp }: Props) => {
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
   const passwordConfirmRef = useRef<HTMLInputElement>(null)
-  const { signIn } = useAuth()
+  const { signUp } = useAuth()
   const [error, setError] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
 
@@ -21,9 +21,11 @@ export const SignUp = ({ toggleSignUp }: Props) => {
     try {
       setError('')
       setLoading(true)
-      await signIn(emailRef.current!.value, passwordRef.current!.value)
-    } catch {
+      await signUp(emailRef.current!.value, passwordRef.current!.value)
+    } catch (err) {
       setError('Attempt to sign up failed.')
+
+      console.error(err)
     }
     setLoading(false)
   }
@@ -34,17 +36,29 @@ export const SignUp = ({ toggleSignUp }: Props) => {
       {error && <span className="error">{error}</span>}
       <form className="sign-up-form" onSubmit={handleSubmit}>
         <label htmlFor="email">Email:</label>
-        <input id="email" type="email" ref={emailRef} required />
+        <input id="email" type="email" autoComplete="email" ref={emailRef} required />
 
         <label htmlFor="password">Password:</label>
-        <input id="password" type="password" ref={passwordRef} required />
+        <input
+          id="password"
+          type="password"
+          ref={passwordRef}
+          autoComplete="new-password"
+          required
+        />
 
         <label htmlFor="password-confirm">Confirm Password:</label>
-        <input id="password-confirm" type="password" ref={passwordConfirmRef} required />
+        <input
+          id="password-confirm"
+          type="password"
+          autoComplete="new-password"
+          ref={passwordConfirmRef}
+          required
+        />
 
         <input disabled={loading} type="submit" value="Sign Up" />
       </form>
-      <span>
+      <span className="toggleSignUp">
         Have an account?
         <button className="link" onClick={() => toggleSignUp(false)}>
           Sign in
