@@ -40,4 +40,23 @@
     border-radius: 6px;
     background: rgba(255, 0, 0, 0.2);
   }
+
+  & .link,
+  & span {
+    display: inline;
+  }
+
+  & .link {
+    margin-left: 1ch;
+    font-size: 1.777rem;
+    appearance: none;
+    border: none;
+    background: none;
+    text-decoration: underline;
+    outline: none;
+
+    &:hover {
+      color: var(--theme-color);
+    }
+  }
 }
