@@ -5,6 +5,7 @@ import { UserInfo } from '@firebase/auth-types'
 const AuthContext = React.createContext({
   user: { email: '' },
   signUp: (email: string, password: string) => {},
+  signIn: (email: string, password: string) => {},
 })
 
 export function useAuth() {
@@ -12,7 +13,7 @@ export function useAuth() {
 }
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [user, setUser] = useState<any>({ email: '' }) // ! fix any
+  const [user, setUser] = useState<any>({ email: '' }) // ! fix any, user only null or UserInfo?
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
@@ -28,9 +29,14 @@ export const AuthProvider: React.FC = ({ children }) => {
     return auth.createUserWithEmailAndPassword(email, password)
   }
 
+  function signIn(email: string, password: string) {
+    return auth.signInWithEmailAndPassword(email, password)
+  }
+
   const value = {
     user,
     signUp,
+    signIn,
   }
 
   return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>

@@ -1,14 +1,12 @@
 import React from 'react'
-import { SignUp } from './components/SignUp'
 import { AuthProvider } from './context/AuthContext'
+import { Container } from './components/Container'
 
 export const App = () => {
   return (
     <AuthProvider>
       <div className="App">
-        <div className="container">
-          <SignUp />
-        </div>
+        <Container />
       </div>
     </AuthProvider>
   )
