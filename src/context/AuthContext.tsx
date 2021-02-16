@@ -11,7 +11,7 @@ const defaultUser: UserInfo = {
   uid: '',
 }
 
-const AuthContext = React.createContext({
+const AuthContext = createContext({
   user: defaultUser,
   signUp: (email: string, password: string) => {},
   signIn: (email: string, password: string) => {},
@@ -37,6 +37,8 @@ export const AuthProvider: React.FC = ({ children }) => {
           providerId: newUser!.providerId,
           uid: newUser!.uid,
         })
+      } else {
+        setUser(defaultUser)
       }
       setLoading(false)
     })
