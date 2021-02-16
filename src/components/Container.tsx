@@ -9,16 +9,14 @@ export const Container = () => {
   const { user } = useAuth()
 
   return (
-    <div className="container">
+    <>
       {!user.email ? (
-        signUp ? (
-          <SignUp toggleSignUp={toggleSignUp} />
-        ) : (
-          <SignIn toggleSignUp={toggleSignUp} />
-        )
+        <div className="container">
+          {signUp ? <SignUp toggleSignUp={toggleSignUp} /> : <SignIn toggleSignUp={toggleSignUp} />}
+        </div>
       ) : (
         <Dashboard />
       )}
-    </div>
+    </>
   )
 }
