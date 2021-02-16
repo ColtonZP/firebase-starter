@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-export default function SignUp() {
+export const SignUp = () => {
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
   const passwordConfirmRef = useRef<HTMLInputElement>(null)
